@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entities.Cd" table="CD">
+        <meta attribute="class-description">
+            This class contains information about the Artist class.
+        </meta>
+        <id name="CD_ID" type="int" column="CD_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="Album" type="string" column="Album" >
+        </property>
+        <property name="Genre" type="string" column="Genre">
+        </property>
+        <many-to-one name="artist"
+                     class="entities.Artist"
+                     column="Artist_ID"
+                     unique="true" not-null="true">
+        </many-to-one>
+        <many-to-one name="organization"
+                     class="entities.Organization"
+                     column="Organization_ID"
+                     unique="true"
+                     not-null="true">
+        </many-to-one>
+    </class>
+</hibernate-mapping>
